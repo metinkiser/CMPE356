@@ -1,19 +1,23 @@
 package io.reflectoring.bbackend.controller;
 
-import org.springframework.http.ResponseEntity;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.reflectoring.bbackend.dto.ForgotPasswordRequest;
 import io.reflectoring.bbackend.dto.LoginRequest;
 import io.reflectoring.bbackend.dto.RegisterRequest;
-import io.reflectoring.bbackend.dto.ForgotPasswordRequest;
-import java.util.Map;
-import io.reflectoring.bbackend.service.AuthService;
 import io.reflectoring.bbackend.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.reflectoring.bbackend.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
 
     @Autowired
